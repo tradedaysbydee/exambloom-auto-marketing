@@ -1,4 +1,4 @@
-name: ExamBloom Daily Auto Marketing
+name: ExamBloom Instagram and TikTok Auto Marketing
 
 on:
   workflow_dispatch:
@@ -14,25 +14,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  post:
+  daily-promotion:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install dependencies
+      - name: Install image and publishing dependencies
         run: pip install -r requirements.txt
-      - name: Check the generator
-        run: python -m py_compile bot.py
-      - name: Generate and publish when enabled
+      - name: Run offline unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Generate today's branded promotional image and captions
+        env:
+          SALES_DESTINATION_URL: ${{ vars.SALES_DESTINATION_URL }}
+        run: python bot.py --preview
+      - name: Publish via Buffer only after activation
         env:
           PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
-          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
-          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
-          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           SALES_DESTINATION_URL: ${{ vars.SALES_DESTINATION_URL }}
-          GRAPH_API_VERSION: v26.0
-        run: python bot.py --publish
+        run: python buffer_publish.py
