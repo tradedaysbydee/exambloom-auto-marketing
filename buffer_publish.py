@@ -24,6 +24,7 @@ POST_MUTATION = """mutation ExamBloomPublish($input: CreatePostInput!) {
   createPost(input: $input) {
     __typename
     ... on PostActionSuccess { post { id status schedulingType } }
+    ... on MutationError { message }
   }
 }"""
 
@@ -139,7 +140,7 @@ def run():
             result = gql(POST_MUTATION, {"input": build_input(channels[service], image_url, post)})
             payload = result["createPost"]
             if payload["__typename"] != "PostActionSuccess":
-                raise RuntimeError("Buffer returned " + payload["__typename"] + " (no post confirmed)")
+                raise RuntimeError("Buffer rejected the post: " + str(payload.get("message", payload["__typename"]))[:250])
             record[service] = {
                 "post_id": payload["post"]["id"],
                 "status": payload["post"]["status"],
