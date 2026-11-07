@@ -33,6 +33,7 @@ GRAPH = "https://graph.facebook.com/" + VERSION
 # Parent-directed, benefits-first messaging; deliberately avoid unverified guarantees.
 from creative_library import OFFERS, QUIZZES
 from strategy import choose_offer
+from campaign_gallery import select_campaign, as_post
 
 
 def font(size, bold=True):
@@ -60,6 +61,12 @@ def url_for(day, campaign, destination):
     })
 
 def compose_post(day, destination):
+    # Approved real-image campaigns go out on four sales days each week.
+    # A missing image cleanly falls back to the regular generated graphic.
+    gallery = select_campaign(day)
+    if gallery is not None:
+        return as_post(gallery, day, destination, url_for)
+
     # Five conversion posts and two educational engagement posts per week.
     weekday = day.weekday()
     day_index = (day.toordinal() // 7) % 1000
@@ -120,6 +127,21 @@ def wrap_text(draw, words, font_obj, width):
     return lines
 
 def render(post, target):
+    # Gallery items are pre-approved artwork; keep their imagery intact.
+    # Convert to the stable 1080×1350 JPEG format used by Buffer.
+    gallery_rel = post.get("gallery_asset")
+    if gallery_rel:
+        source = (ROOT / gallery_rel).resolve()
+        campaigns = (ROOT / "assets" / "campaigns").resolve()
+        if source.parent != campaigns or not source.is_file():
+            raise ValueError("Campaign image is missing or outside the approved gallery.")
+        with Image.open(source) as original:
+            image = ImageOps.fit(original.convert("RGB"), (1080, 1350),
+                                 method=Image.Resampling.LANCZOS)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        image.save(target, "JPEG", quality=90, optimize=True)
+        return
+
     img = Image.new("RGB", (1080, 1350), "#F7F3FF")
     d = ImageDraw.Draw(img)
     d.rectangle((0, 0, 1080, 170), fill=WHITE)
