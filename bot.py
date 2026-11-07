@@ -159,10 +159,20 @@ def render(post, target):
     d.text((62, 220), post["headline"][0], font=font(65), fill=NAVY)
     d.text((62, 304), post["headline"][1], font=font(67), fill=PURPLE)
     d.rounded_rectangle((62, 409, 495, 419), radius=4, fill=YELLOW)
-    y = 465
-    for line in wrap_text(d, post["detail"], font(34, False), 950)[:3]:
-        d.text((62, y), line, font=font(34, False), fill=NAVY)
-        y += 48
+    if post["category"] == "quiz":
+        # Make the main quiz question big, bold, and easy to read on phones.
+        question_font = font(60, True)
+        y = 454
+        for line in wrap_text(d, post["detail"], question_font, 950)[:2]:
+            d.text((62, y), line, font=question_font, fill=NAVY)
+            y += 76
+    else:
+        # Preserve the original size for longer sales/benefit captions.
+        description_font = font(34, False)
+        y = 465
+        for line in wrap_text(d, post["detail"], description_font, 950)[:3]:
+            d.text((62, y), line, font=description_font, fill=NAVY)
+            y += 48
     d.rounded_rectangle((50, 1094, 1030, 1235), radius=48, fill=PURPLE)
     d.text((95, 1128), "Explore ExamBloom", font=font(56), fill=WHITE)
     d.text((61, 1277), "exambloom.co.uk   |   Little steps. Big progress.", font=font(26), fill=NAVY)
