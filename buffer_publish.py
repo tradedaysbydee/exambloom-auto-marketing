@@ -12,6 +12,7 @@ from urllib.parse import quote
 import requests
 
 from bot import ROOT, git_save, SITE, today
+from strategy import expected_cron_for
 
 API = "https://api.buffer.com"
 LOG = ROOT / "data" / "buffer_history.json"
@@ -117,6 +118,14 @@ def run():
     if os.environ.get("PUBLISH_ENABLED", "false").lower() != "true":
         print("SAFE MODE: Buffer posting disabled, files generated; no publishing.")
         return
+
+    if os.environ.get("GITHUB_EVENT_NAME") == "schedule":
+        expected = expected_cron_for(current, ROOT / "data" / "performance.json")
+        triggered = os.environ.get("GITHUB_SCHEDULE", "").strip()
+        if triggered != expected:
+            print("Experiment: skipping this slot. Today's chosen cron:", expected)
+            return
+        print("Experiment: selected UK posting slot:", triggered)
 
     repo = os.environ.get("GITHUB_REPOSITORY", "").strip()
     branch = os.environ.get("GITHUB_REF_NAME", "main")
