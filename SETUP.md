@@ -1,35 +1,39 @@
-# ExamBloom automatic Instagram + TikTok marketing — free setup
+# ExamBloom — live organic growth bot
 
-## Current activation status (7 November 2026)
+**Current status (7 November 2026): LIVE.** The GitHub publisher is connected to the owner's existing Buffer account and sends organic Instagram and TikTok posts. Its initial campaign has been verified as `sent` on both platforms by Buffer's read-only metrics API. No paid Meta/TikTok advertising is purchased.
 
-**LIVE PUBLISHING ENABLED.** The GitHub Actions workflow currently sets `PUBLISH_ENABLED: 'true'` directly in `.github/workflows/post-daily.yml`. The old repository variable `PUBLISH_ENABLED` no longer controls it. On the first live run, Buffer accepted one Instagram post and one TikTok post with status `sending`. Final publication must be checked in Buffer or on the platforms.
+## What runs automatically
 
-**To pause:** Open the repository **Actions** tab, select **ExamBloom Instagram and TikTok Auto Marketing**, open the **…** menu, and choose **Disable workflow**. This pauses both the daily schedule and manual runs. To resume, select **Enable workflow**. You can also edit the workflow's `PUBLISH_ENABLED` value back to `'false'` to keep preview runs working without public publication.
+**Daily content publishing** — [.github/workflows/post-daily.yml](.github/workflows/post-daily.yml)
+- Creates ExamBloom-branded promotional graphics, quizzes and parent-facing copy.
+- Five sales-benefit posts and two quiz posts per week, from a larger original content library.
+- Tests **12:17 PM, 6:17 PM and 8:17 PM Europe/London**.
+- Only the one selected scheduled run each day submits posts; other runs generate previews and exit without publishing.
+- Uses real engagement data after enough comparable samples; otherwise fairly rotates options. Continues exploring new creatives/times.
+- Uses `data/buffer_history.json` to prevent routine duplicate submissions.
+- The `PUBLISH_ENABLED` setting is currently **hardcoded to true in the workflow**; changing an old repository variable of the same name does not disable publishing.
 
-This version uses **Buffer**, not a Facebook Page or your own Meta/TikTok developer app. It uses the existing GitHub Actions cloud schedule, the ExamBloom graphics generator, and Buffer's current GraphQL API.
+**Daily performance analysis** — [.github/workflows/insights.yml](.github/workflows/insights.yml)
+- Collects available Buffer post metrics once per day, including views, impressions, reach and engagement where reported.
+- Stores results in [PERFORMANCE.md](PERFORMANCE.md) and `data/performance.json`, with historical post IDs and creative metadata.
+- Tracks progress toward **one million exposure events**, NOT one million unique people.
+- Identifies better-supported themes and publishing times after adequate data. Missing metrics are not treated as zero.
+- Requires the existing secret `BUFFER_API_KEY`. Buffer's metrics APIs are experimental and may change or lag the platforms.
 
-## One-time setup (you do not have to give ChatGPT your passwords)
+## Pause or resume
 
-1. Visit https://buffer.com and create a **Free** account.
-2. In Buffer, connect your ExamBloom Instagram and TikTok channels. Instagram needs to be **Professional (Business or Creator)** for hands-off auto publishing; if your Instagram is Personal, switch its account type in Instagram settings. TikTok photos and videos must meet platform requirements to post automatically. Avoid features that require a mobile notification (e.g., native music/effects).
-3. Visit https://publish.buffer.com/settings/api and create your Buffer API key. The page may redirect within Buffer's settings.
-4. On **your GitHub repo**, open Settings > Secrets and variables > Actions > **New repository secret**. Name it `BUFFER_API_KEY` and paste the secret **there**, never in GitHub public files, a screenshot or ChatGPT.
-5. On the **Variables** tab add `SALES_DESTINATION_URL` = `https://exambloom.co.uk` (or a verified direct signup/membership page), and `PUBLISH_ENABLED` = `false` for testing.
-6. In the **Actions** tab, find **ExamBloom Instagram and TikTok Auto Marketing**, select **Run workflow**. This only generates a preview while `PUBLISH_ENABLED` is false. Verify a green test run.
-7. When both channels are connected and you are ready to make public posts, switch `PUBLISH_ENABLED` to `true` and run the workflow again. Confirm the posts in **Buffer** and on the actual Instagram and TikTok accounts. If TikTok declines an image format, leave publishing off and check Buffer's current TikTok support.
-8. The schedule targets approximately **18:17 UK time** every day; scheduled GitHub Actions may run late. Your Mac can be shut down. To stop it, set `PUBLISH_ENABLED` back to `false`.
+Open the repository's **Actions** tab, select **ExamBloom Instagram and TikTok Auto Marketing**, and use the **… menu → Disable workflow** to stop new posts. Choose **Enable workflow** to resume. To keep preview functionality but disable live posts, change `PUBLISH_ENABLED: 'true'` to `PUBLISH_ENABLED: 'false'` in `.github/workflows/post-daily.yml`. The analytics workflow can remain enabled independently.
 
-## What this bot actually does
-- Generates a new 1080×1350 branded JPEG and sales-focused caption from its built-in templates every day, with 5 benefit/membership posts and 2 quiz posts per week.
-- Commits the image to your **public** repository so Buffer can retrieve it; do not put anything private in assets or generated images.
-- Discovers Instagram and TikTok channels from your Buffer account and submits daily posts in **automatic** rather than reminder mode.
-- Keeps a basic publication history in `data/buffer_history.json` to avoid routine duplicate submissions.
+## What isn't completed yet
 
-## Important conditions
-- Buffer's free tier currently supports **3 connected channels and up to 10 queued posts per channel at a time**; this bot submits at most one new post per day per platform. The API is free at current limits. Third-party free limits may change.
-- Buffer may reject unsupported formats or accounts. Automatic publishing is not guaranteed for content using native-only effects. **We have not tested with your real accounts yet**.
-- A post accepted by Buffer is not necessarily publicly published. Check the platform or Buffer's status on first launch and periodically thereafter.
-- Instagram captions do not create clickable links; add `https://exambloom.co.uk` to your Instagram bio. Set your TikTok profile link where eligible.
-- To attribute **paid subscription sales**, website tracking for successful checkout completion is required separately.
-- The generator is deterministic template-based (free, no paid image credits), not generative AI.
-- Any credentials can expire. Reconnect your channels when Buffer asks.
+- **Paid-conversion attribution**: ExamBloom's live Stripe product was identified in the connected VYBE account, but the marketing repository cannot read Stripe checkout payments without a separate, secure integration. To link a particular post to a paid subscription, the ExamBloom website must preserve campaign UTM parameters and send verified checkout metadata to Stripe.
+- **Ads and reach guarantee**: The bot publishes free organic posts. It does not purchase advertising, manipulate recommendation algorithms or guarantee one million impressions or customers.
+- **Native short video production**: The current daily Buffer publishing route uses generated JPEG image posts. Reels/video automation needs separate compatibility testing.
+
+See [SALES_TRACKING.md](SALES_TRACKING.md) for privacy-safe website attribution and suggested profile links.
+
+## Support and security
+
+Never add passwords, Buffer API keys or Stripe keys to public files. Existing Buffer authorization is in GitHub Actions secrets. GitHub Actions and Buffer are external services; schedules, access permissions and free-plan limits can change. If either social platform requires reauthorization, reconnect it inside Buffer.
+
+Ensure profile bios point parents to `https://exambloom.co.uk`. Use parent-directed language, avoid claims of guaranteed exam performance, and handle data about children and parents appropriately under UK privacy law.
