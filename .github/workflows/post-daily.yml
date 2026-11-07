@@ -2,12 +2,12 @@ name: ExamBloom Instagram and TikTok Auto Marketing
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/post-daily.yml'
   schedule:
+    - cron: '17 12 * * *'
+      timezone: 'Europe/London'
     - cron: '17 18 * * *'
+      timezone: 'Europe/London'
+    - cron: '17 20 * * *'
       timezone: 'Europe/London'
 
 permissions:
@@ -48,6 +48,7 @@ jobs:
       - name: Publish via Buffer only after activation
         env:
           PUBLISH_ENABLED: 'true'
+          GITHUB_SCHEDULE: ${{ github.event.schedule }}
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           SALES_DESTINATION_URL: ${{ vars.SALES_DESTINATION_URL }}
         run: python buffer_publish.py
