@@ -31,6 +31,10 @@ jobs:
         env:
           SALES_DESTINATION_URL: ${{ vars.SALES_DESTINATION_URL }}
         run: python bot.py --preview
+      - name: Verify Buffer key and connected channels without publishing
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: python check_buffer.py
       - name: Publish via Buffer only after activation
         env:
           PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
