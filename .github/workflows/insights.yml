@@ -6,6 +6,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/insights.yml'
+      - 'campaign_gallery.py'
+      - 'assets/campaigns/**'
+      - 'tests/test_gallery.py'
   schedule:
     - cron: '41 8 * * *'
       timezone: 'Europe/London'
