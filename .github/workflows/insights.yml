@@ -1,0 +1,45 @@
+name: ExamBloom Organic Growth Analytics
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/insights.yml'
+  schedule:
+    - cron: '41 8 * * *'
+      timezone: 'Europe/London'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: exambloom-insights
+  cancel-in-progress: false
+
+jobs:
+  measure-and-learn:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Validate growth model and image generator
+        run: python -m unittest discover -s tests -v
+      - name: Retrieve first-party Buffer campaign metrics
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: python insights.py
+      - name: Save history snapshot for owner
+        uses: actions/upload-artifact@v4
+        with:
+          name: exambloom-daily-performance
+          path: |
+            PERFORMANCE.md
+            data/performance.json
+          retention-days: 30
