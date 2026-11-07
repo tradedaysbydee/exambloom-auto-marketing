@@ -23,6 +23,17 @@ TOPICS = [
 ]
 assert len(TOPICS) == len(OFFERS)
 
+GALLERY_TOPICS = {
+    "create-tests": "routine",
+    "family-learning-together": "family",
+    "guided-lessons": "learning",
+    "family-learning-at-home": "family",
+    "daily-brain-sprint": "quiz",
+    "parent-child-practice": "family",
+    "progress-and-badges": "progress",
+    "family-celebrates-progress": "family",
+}
+
 def history(performance_path):
     try:
         return json.loads(Path(performance_path).read_text(encoding="utf-8"))
@@ -32,6 +43,8 @@ def history(performance_path):
 def creative_topic(creative_id):
     if not isinstance(creative_id, str):
         return None
+    if creative_id.startswith("gallery-"):
+        return GALLERY_TOPICS.get(creative_id[len("gallery-"):])
     try:
         kind, raw = creative_id.split("-", 1)
         idx = int(raw)
