@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "purpose": "Eight approved ExamBloom organic social promotions, alternated with educational quizzes",
+  "campaigns": [
+    {
+      "id": "create-tests",
+      "file": "01_create_tests.jpg",
+      "headline": [
+        "Create a test",
+        "in a few taps."
+      ],
+      "detail": "Choose a learning stage, subject, and time limit for a focused practice session.",
+      "cta": "Explore ExamBloom's test creator.",
+      "hashtags": "#ExamBloom #UKParents #HomeLearning #PracticeTests"
+    },
+    {
+      "id": "family-learning-together",
+      "file": "02_family_learning_together.jpg",
+      "headline": [
+        "Little steps.",
+        "Big progress."
+      ],
+      "detail": "Make learning part of family time with questions children can try at home.",
+      "cta": "Explore ExamBloom together.",
+      "hashtags": "#ExamBloom #FamilyLearning #UKParents #LearningAtHome"
+    },
+    {
+      "id": "guided-lessons",
+      "file": "03_guided_lessons.jpg",
+      "headline": [
+        "Guided lessons",
+        "for growing minds."
+      ],
+      "detail": "Find subject lessons and recommended next steps for your child's learning journey.",
+      "cta": "Explore the Learn section.",
+      "hashtags": "#ExamBloom #GuidedLearning #UKParents #HomeLearning"
+    },
+    {
+      "id": "family-learning-at-home",
+      "file": "04_family_learning_at_home.jpg",
+      "headline": [
+        "Family learning",
+        "made engaging."
+      ],
+      "detail": "Explore quizzes, points and progress together in one place.",
+      "cta": "See what your family can practise.",
+      "hashtags": "#ExamBloom #FamilyTime #EducationAtHome #UKParents"
+    },
+    {
+      "id": "daily-brain-sprint",
+      "file": "05_daily_brain_sprint.jpg",
+      "headline": [
+        "Daily Brain Sprint",
+        "is ready."
+      ],
+      "detail": "Ten questions. Five minutes. New daily challenges and a points leaderboard.",
+      "cta": "Try today's Daily Brain Sprint.",
+      "hashtags": "#ExamBloom #DailyBrainSprint #FamilyQuiz #UKParents"
+    },
+    {
+      "id": "parent-child-practice",
+      "file": "06_parent_child_practice.jpg",
+      "headline": [
+        "Practice together.",
+        "Celebrate the effort."
+      ],
+      "detail": "Short quizzes and progress tracking help parents support everyday learning.",
+      "cta": "Explore ExamBloom for families.",
+      "hashtags": "#ExamBloom #LearningTogether #UKParents #PracticeAtHome"
+    },
+    {
+      "id": "progress-and-badges",
+      "file": "07_progress_and_badges.jpg",
+      "headline": [
+        "Track progress.",
+        "Celebrate wins."
+      ],
+      "detail": "See test scores, achievement badges and learning summaries over time.",
+      "cta": "Explore My Progress on ExamBloom.",
+      "hashtags": "#ExamBloom #LearningProgress #ParentReports #UKParents"
+    },
+    {
+      "id": "family-celebrates-progress",
+      "file": "08_family_celebrates_progress.jpg",
+      "headline": [
+        "Celebrate",
+        "every learning step."
+      ],
+      "detail": "Make time for a quiz and recognise your child's practice milestones.",
+      "cta": "Explore family learning with ExamBloom.",
+      "hashtags": "#ExamBloom #FamilyLearning #CelebrateProgress #UKParents"
+    }
+  ]
+}
