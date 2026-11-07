@@ -1,5 +1,11 @@
 # ExamBloom automatic Instagram + TikTok marketing — free setup
 
+## Current activation status (7 November 2026)
+
+**LIVE PUBLISHING ENABLED.** The GitHub Actions workflow currently sets `PUBLISH_ENABLED: 'true'` directly in `.github/workflows/post-daily.yml`. The old repository variable `PUBLISH_ENABLED` no longer controls it. On the first live run, Buffer accepted one Instagram post and one TikTok post with status `sending`. Final publication must be checked in Buffer or on the platforms.
+
+**To pause:** Open the repository **Actions** tab, select **ExamBloom Instagram and TikTok Auto Marketing**, open the **…** menu, and choose **Disable workflow**. This pauses both the daily schedule and manual runs. To resume, select **Enable workflow**. You can also edit the workflow's `PUBLISH_ENABLED` value back to `'false'` to keep preview runs working without public publication.
+
 This version uses **Buffer**, not a Facebook Page or your own Meta/TikTok developer app. It uses the existing GitHub Actions cloud schedule, the ExamBloom graphics generator, and Buffer's current GraphQL API.
 
 ## One-time setup (you do not have to give ChatGPT your passwords)
