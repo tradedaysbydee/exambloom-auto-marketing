@@ -3,7 +3,11 @@
     "creative_scores": {},
     "eligible_top_creative": null,
     "minimum_posts_per_creative": 3,
-    "notes": "Engagement-weighted observations; no knowledge of ranking algorithms."
+    "notes": "Comparison of observed engagement per 1000 exposures; not a platform ranking algorithm.",
+    "slot_sample_counts": {},
+    "top_slot": null,
+    "top_topic": null,
+    "topic_sample_counts": {}
   },
   "goal": {
     "metric": "summed post exposure events (NOT unique people)",
@@ -64,5 +68,5 @@
       "status": "sent"
     }
   },
-  "updated_at": "2026-11-07T09:00:54.801347+00:00"
+  "updated_at": "2026-11-07T09:04:05.372241+00:00"
 }

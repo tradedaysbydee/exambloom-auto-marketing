@@ -1,6 +1,6 @@
 # ExamBloom organic marketing — performance history
 
-Last checked (UTC): 2026-11-07T09:00:54.801347+00:00
+Last checked (UTC): 2026-11-07T09:04:05.372241+00:00
 
 **Goal:** 1,000,000 measured exposure events. This is not a count of unique people, nor a guarantee of reach. Views and impressions can count repeats.
 
@@ -15,4 +15,8 @@ Metrics are refreshed by Buffer roughly once per day. Missing measurements are u
 
 **Sales:** Not available until ExamBloom's subscription checkout reports verified purchases with campaign attribution. This report does not invent purchases.
 
-**Current experimental top creative:** Not enough evidence yet
+**Current best-supported content theme:** Not enough evidence yet
+
+**Current best-supported posting time:** Not enough evidence yet
+
+The system tests topics and UK posting times; it does not access Instagram or TikTok's private ranking algorithms.
