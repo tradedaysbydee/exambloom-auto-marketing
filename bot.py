@@ -31,24 +31,8 @@ VERSION = os.getenv("GRAPH_API_VERSION", "v26.0")
 GRAPH = "https://graph.facebook.com/" + VERSION
 
 # Parent-directed, benefits-first messaging; deliberately avoid unverified guarantees.
-OFFERS = [
-    ("Little steps.", "Big progress.", "Make practice part of your child's daily routine.",
-     "See how ExamBloom can help your family practise online."),
-    ("Practise with purpose.", "Grow confidence.", "Discover timed practice across different subjects.",
-     "Explore ExamBloom and choose a test that suits your child."),
-    ("Schoolwork, made simpler.", "Start practising.", "Choose the learning stage, subject and test length.",
-     "Try creating a practice test on ExamBloom."),
-    ("Preparing for 11+?", "Start with practice.", "Try maths, English and reasoning questions at home.",
-     "See what ExamBloom offers for 11+ practice."),
-    ("See their progress.", "Celebrate small wins.", "Use progress tracking to support regular practice.",
-     "Discover the ExamBloom learning experience."),
-]
-QUIZZES = [
-    ("Quick maths challenge", "What is 25% of 80?", "A 15    B 20    C 25", "B: 20"),
-    ("Quick maths challenge", "What is 7 x 8?", "A 54    B 56    C 64", "B: 56"),
-    ("English challenge", "Which word means 'happy'?", "A Joyful    B Tired    C Dull", "A: Joyful"),
-    ("Reasoning challenge", "Complete: 2, 4, 8, 16, ?", "A 24    B 30    C 32", "C: 32"),
-]
+from creative_library import OFFERS, QUIZZES
+
 
 def font(size, bold=True):
     for path in (FONT_CANDIDATES if bold else FONT_REGULAR):
@@ -79,7 +63,9 @@ def compose_post(day, destination):
     weekday = day.weekday()
     day_index = (day.toordinal() // 7) % 1000
     if weekday in (2, 5):
-        title, question, answers, correct = QUIZZES[(day_index + weekday) % len(QUIZZES)]
+        quiz_index = (day_index + weekday) % len(QUIZZES)
+        title, question, answers, correct = QUIZZES[quiz_index]
+        creative_id = "quiz-" + str(quiz_index)
         tag = "quiz"
         headline = (title, "Test your knowledge.")
         detail = question
@@ -94,7 +80,21 @@ def compose_post(day, destination):
             "#ExamBloom #FamilyLearning #UKParents #LearningAtHome"
         )
     else:
-        headline1, headline2, detail, cta = OFFERS[(day_index + weekday) % len(OFFERS)]
+        baseline_index = (day_index + weekday) % len(OFFERS)
+        offer_index = baseline_index
+        # 1 in 5 posts keeps exploring, even after a winner emerges.
+        # Prefer the measured winner only after at least 3 comparable posts.
+        try:
+            insights = json.loads((ROOT / "data" / "performance.json").read_text(encoding="utf-8"))
+            winner = insights.get("adaptive", {}).get("eligible_top_creative")
+            if day.toordinal() % 5 and isinstance(winner, str) and winner.startswith("offer-"):
+                proposed = int(winner.split("-", 1)[1])
+                if 0 <= proposed < len(OFFERS):
+                    offer_index = proposed
+        except (FileNotFoundError, ValueError, TypeError, IndexError, KeyError):
+            pass  # No real results yet: rotate diverse creatives rather than guessing.
+        headline1, headline2, detail, cta = OFFERS[offer_index]
+        creative_id = "offer-" + str(offer_index)
         tag = "membership"
         headline = (headline1, headline2)
         helper = "Practice tests • Daily Brain Sprint • Progress"
@@ -110,6 +110,7 @@ def compose_post(day, destination):
     return {
         "date": day.isoformat(), "category": tag,
         "headline": list(headline), "detail": detail, "helper": helper,
+        "creative_id": creative_id,
         "facebook_caption": facebook + url_for(day, tag, destination),
         "instagram_caption": instagram, "site": SITE,
     }
@@ -145,7 +146,20 @@ def render(post, target):
         if path.exists():
             photo = path
             break
-    if photo:
+    if post["category"] == "quiz":
+        # The answers are now prominent, not buried below the post or hidden.
+        d.rounded_rectangle((65, 658, 1015, 1035), radius=30,
+                            fill=WHITE, outline="#DED2FF", width=5)
+        options = [s.strip() for s in post["helper"].split("|")]
+        for n, option in enumerate(options[:3]):
+            top = 681 + n * 113
+            d.rounded_rectangle((105, top, 975, top + 94), radius=22,
+                                fill="#EEE8FF", outline="#E1D6FF", width=3)
+            option_font = font(48, True)
+            while option_font.size > 27 and d.textbbox((0, 0), option, font=option_font)[2] > 805:
+                option_font = font(option_font.size - 2, True)
+            d.text((142, top + 17), option, font=option_font, fill=NAVY)
+    elif photo:
         with Image.open(photo) as original:
             panel = ImageOps.fit(original.convert("RGB"), (970, 420))
         img.paste(panel, (55, 595))
@@ -156,8 +170,14 @@ def render(post, target):
         d.text((190, 784), "MATHS  •  ENGLISH", font=font(45), fill=PURPLE)
         d.text((245, 856), "QUIZZES  •  11+ PREP", font=font(39), fill=NAVY)
 
-    d.text((62, 220), post["headline"][0], font=font(65), fill=NAVY)
-    d.text((62, 304), post["headline"][1], font=font(67), fill=PURPLE)
+    for y, heading, heading_color, size in (
+        (220, post["headline"][0], NAVY, 65),
+        (304, post["headline"][1], PURPLE, 67),
+    ):
+        head_font = font(size)
+        while head_font.size > 33 and d.textbbox((0, 0), heading, font=head_font)[2] > 955:
+            head_font = font(head_font.size - 2)
+        d.text((62, y), heading, font=head_font, fill=heading_color)
     d.rounded_rectangle((62, 409, 495, 419), radius=4, fill=YELLOW)
     if post["category"] == "quiz":
         # Make the main quiz question big, bold, and easy to read on phones.
