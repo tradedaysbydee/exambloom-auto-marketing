@@ -32,6 +32,7 @@ GRAPH = "https://graph.facebook.com/" + VERSION
 
 # Parent-directed, benefits-first messaging; deliberately avoid unverified guarantees.
 from creative_library import OFFERS, QUIZZES
+from strategy import choose_offer
 
 
 def font(size, bold=True):
@@ -81,18 +82,8 @@ def compose_post(day, destination):
         )
     else:
         baseline_index = (day_index + weekday) % len(OFFERS)
-        offer_index = baseline_index
-        # 1 in 5 posts keeps exploring, even after a winner emerges.
-        # Prefer the measured winner only after at least 3 comparable posts.
-        try:
-            insights = json.loads((ROOT / "data" / "performance.json").read_text(encoding="utf-8"))
-            winner = insights.get("adaptive", {}).get("eligible_top_creative")
-            if day.toordinal() % 5 and isinstance(winner, str) and winner.startswith("offer-"):
-                proposed = int(winner.split("-", 1)[1])
-                if 0 <= proposed < len(OFFERS):
-                    offer_index = proposed
-        except (FileNotFoundError, ValueError, TypeError, IndexError, KeyError):
-            pass  # No real results yet: rotate diverse creatives rather than guessing.
+        # Learn from observed theme scores, while exploring a new idea in 1/5 posts.
+        offer_index = choose_offer(day, baseline_index, ROOT / "data" / "performance.json")
         headline1, headline2, detail, cta = OFFERS[offer_index]
         creative_id = "offer-" + str(offer_index)
         tag = "membership"
