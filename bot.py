@@ -234,7 +234,7 @@ def main():
     print("Generated safe preview:", image_path.name, post["category"])
 
     if not args.publish or os.getenv("PUBLISH_ENABLED", "false").lower() != "true":
-        print("SAFE MODE: no live post (set PUBLISH_ENABLED=true only after Meta setup).")
+        print("SAFE MODE: promotional artwork generated; Buffer publication is separately disabled until the account test passes and PUBLISH_ENABLED=true.")
         return
     token = os.getenv("META_PAGE_ACCESS_TOKEN", "").strip()
     page = os.getenv("META_PAGE_ID", "").strip()
