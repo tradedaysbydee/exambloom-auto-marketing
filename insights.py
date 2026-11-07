@@ -11,6 +11,7 @@ from zoneinfo import ZoneInfo
 
 from buffer_publish import gql, ORG_QUERY, CHANNEL_QUERY, LOG
 from bot import ROOT, git_save, today
+from strategy import creative_topic, SLOTS
 
 OUT = ROOT / "data" / "performance.json"
 REPORT = ROOT / "PERFORMANCE.md"
@@ -153,9 +154,23 @@ def collect():
             section[metric_name] += int(m.get(metric_name, 0))
         points = quality_score(m)
         if points is not None and item.get("creative_id") not in (None, "unknown"):
+            slot_hour = None
+            if item.get("sent_at"):
+                try:
+                    utc_time = dt.datetime.fromisoformat(item["sent_at"].replace("Z", "+00:00"))
+                    london = utc_time.astimezone(ZoneInfo("Europe/London"))
+                    minute_of_day = london.hour * 60 + london.minute
+                    matches = [(abs(minute_of_day - (hour * 60 + 17)), hour)
+                               for _, hour in SLOTS]
+                    nearest = min(matches)
+                    if nearest[0] <= 95:  # GitHub scheduled workflows may run late.
+                        slot_hour = nearest[1]
+                except (ValueError, TypeError):
+                    pass
             observations.append({"creative_id": item["creative_id"],
+                                 "topic": creative_topic(item["creative_id"]),
                                  "platform": platform, "score": points,
-                                 "exposures": n})
+                                 "slot": slot_hour, "exposures": n})
 
     # Choose creative only with several independently observed posts.
     candidate_scores = defaultdict(list)
@@ -168,6 +183,19 @@ def collect():
     eligible = [(k, v) for k, v in score_table.items() if v["sample_size"] >= 3]
     winner = max(eligible, key=lambda e: e[1]["median_quality_per_1000"])[0] if eligible else None
 
+    topic_scores, slot_scores = defaultdict(list), defaultdict(list)
+    for point in observations:
+        if point["topic"]:
+            topic_scores[point["topic"]].append(point["score"])
+        if point["slot"] is not None:
+            slot_scores[point["slot"]].append(point["score"])
+    def winner_from(scores):
+        qualified = [(key, statistics.median(values)) for key, values in scores.items()
+                     if len(values) >= 3]
+        return max(qualified, key=lambda item: item[1])[0] if qualified else None
+    winning_topic = winner_from(topic_scores)
+    winning_slot = winner_from(slot_scores)
+
     lifetime = sum(d["exposure_events"] for d in by_platform.values())
     result = {
         "updated_at": now,
@@ -176,8 +204,11 @@ def collect():
         "platforms": dict(by_platform),
         "records": records,
         "adaptive": {"eligible_top_creative": winner, "creative_scores": score_table,
+                     "top_topic": winning_topic, "top_slot": winning_slot,
+                     "topic_sample_counts": {k: len(v) for k, v in topic_scores.items()},
+                     "slot_sample_counts": {str(k): len(v) for k, v in slot_scores.items()},
                      "minimum_posts_per_creative": 3,
-                     "notes": "Engagement-weighted observations; no knowledge of ranking algorithms."},
+                     "notes": "Comparison of observed engagement per 1000 exposures; not a platform ranking algorithm."},
         "issues": messages,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -199,7 +230,9 @@ def collect():
                   "are unknown, not zero. Comparing summed exposure events with unique reach is not valid.", "",
                   "**Sales:** Not available until ExamBloom's subscription checkout reports verified "
                   "purchases with campaign attribution. This report does not invent purchases.", "",
-                  f"**Current experimental top creative:** {winner or 'Not enough evidence yet'}", ""])
+                  f"**Current best-supported content theme:** {winning_topic or 'Not enough evidence yet'}", "",
+                  f"**Current best-supported posting time:** {str(winning_slot) + ':17 UK' if winning_slot is not None else 'Not enough evidence yet'}", "",
+                  "The system tests topics and UK posting times; it does not access Instagram or TikTok's private ranking algorithms.", ""])
     if messages:
         lines += ["**Data limitations:**", *("- " + s for s in messages), ""]
     REPORT.write_text("\n".join(lines), encoding="utf-8")
