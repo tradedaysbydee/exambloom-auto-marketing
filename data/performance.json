@@ -1,17 +1,24 @@
 {
   "adaptive": {
-    "creative_scores": {},
+    "creative_scores": {
+      "quiz-6": {
+        "median_quality_per_1000": 14.87,
+        "sample_size": 1
+      }
+    },
     "eligible_top_creative": null,
     "minimum_posts_per_creative": 3,
     "notes": "Comparison of observed engagement per 1000 exposures; not a platform ranking algorithm.",
     "slot_sample_counts": {},
     "top_slot": null,
     "top_topic": null,
-    "topic_sample_counts": {}
+    "topic_sample_counts": {
+      "quiz": 1
+    }
   },
   "goal": {
     "metric": "summed post exposure events (NOT unique people)",
-    "observed": 0,
+    "observed": 269,
     "target": 1000000
   },
   "issues": [],
@@ -23,13 +30,13 @@
       "reactions": 0,
       "saves": 0,
       "shares": 0,
-      "with_metrics": 0
+      "with_metrics": 1
     },
     "tiktok": {
       "comments": 0,
-      "exposure_events": 0,
+      "exposure_events": 269,
       "posts": 1,
-      "reactions": 0,
+      "reactions": 4,
       "saves": 0,
       "shares": 0,
       "with_metrics": 1
@@ -38,35 +45,44 @@
   "records": {
     "6aee78caa7751de7c9ba1132": {
       "category": "quiz",
-      "creative_id": "unknown",
+      "creative_id": "quiz-6",
       "day": "2026-11-07",
       "insights_state": "metrics available",
-      "metrics": {},
-      "metrics_updated_at": "2026-11-07T01:03:06.939Z",
+      "metrics": {
+        "comments": 0.0,
+        "engagementRate": 0.0,
+        "follows": 0.0,
+        "reach": 0.0,
+        "reactions": 0.0,
+        "saves": 0.0,
+        "shares": 0.0,
+        "views": 0.0
+      },
+      "metrics_updated_at": "2026-11-07T23:04:14.108Z",
       "platform": "instagram",
       "sent_at": "2026-11-07T01:03:35.352Z",
       "status": "sent"
     },
     "6aee78d6004e4879a726aa56": {
       "category": "quiz",
-      "creative_id": "unknown",
+      "creative_id": "quiz-6",
       "day": "2026-11-07",
       "insights_state": "metrics available",
       "metrics": {
-        "averageTimeWatched": 0.0,
+        "averageTimeWatched": 4.03,
         "comments": 0.0,
-        "engagementRate": 0.0,
+        "engagementRate": 1.49,
         "reach": 0.0,
-        "reactions": 0.0,
+        "reactions": 4.0,
         "shares": 0.0,
-        "totalTimeWatched": 0.0,
-        "views": 0.0
+        "totalTimeWatched": 19.35,
+        "views": 269.0
       },
-      "metrics_updated_at": "2026-11-07T01:03:18.499Z",
+      "metrics_updated_at": "2026-11-07T23:06:42.685Z",
       "platform": "tiktok",
       "sent_at": "2026-11-07T01:05:01.333Z",
       "status": "sent"
     }
   },
-  "updated_at": "2026-11-07T09:04:05.372241+00:00"
+  "updated_at": "2026-11-07T23:47:33.686379+00:00"
 }
