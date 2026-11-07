@@ -1,6 +1,6 @@
 # ExamBloom organic marketing — performance history
 
-Last checked (UTC): 2026-11-07T23:47:33.686379+00:00
+Last checked (UTC): 2026-11-07T23:57:11.585870+00:00
 
 **Goal:** 1,000,000 measured exposure events. This is not a count of unique people, nor a guarantee of reach. Views and impressions can count repeats.
 
