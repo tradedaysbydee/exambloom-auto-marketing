@@ -2,7 +2,7 @@
   "adaptive": {
     "creative_scores": {
       "quiz-6": {
-        "median_quality_per_1000": 14.87,
+        "median_quality_per_1000": 12.048,
         "sample_size": 1
       }
     },
@@ -18,7 +18,7 @@
   },
   "goal": {
     "metric": "summed post exposure events (NOT unique people)",
-    "observed": 269,
+    "observed": 352,
     "target": 1000000
   },
   "issues": [],
@@ -26,20 +26,20 @@
     "instagram": {
       "comments": 0,
       "exposure_events": 0,
-      "posts": 1,
+      "posts": 2,
       "reactions": 0,
       "saves": 0,
       "shares": 0,
-      "with_metrics": 1
+      "with_metrics": 2
     },
     "tiktok": {
       "comments": 0,
-      "exposure_events": 269,
-      "posts": 1,
-      "reactions": 4,
+      "exposure_events": 352,
+      "posts": 2,
+      "reactions": 5,
       "saves": 0,
       "shares": 0,
-      "with_metrics": 1
+      "with_metrics": 2
     }
   },
   "records": {
@@ -58,7 +58,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-07T23:04:14.108Z",
+      "metrics_updated_at": "2026-11-08T23:04:23.241Z",
       "platform": "instagram",
       "sent_at": "2026-11-07T01:03:35.352Z",
       "status": "sent"
@@ -69,20 +69,60 @@
       "day": "2026-11-07",
       "insights_state": "metrics available",
       "metrics": {
-        "averageTimeWatched": 4.03,
+        "averageTimeWatched": 3.8,
         "comments": 0.0,
-        "engagementRate": 1.49,
+        "engagementRate": 1.2,
         "reach": 0.0,
         "reactions": 4.0,
         "shares": 0.0,
-        "totalTimeWatched": 19.35,
-        "views": 269.0
+        "totalTimeWatched": 23.08,
+        "views": 332.0
       },
-      "metrics_updated_at": "2026-11-07T23:06:42.685Z",
+      "metrics_updated_at": "2026-11-08T22:07:42.857Z",
       "platform": "tiktok",
       "sent_at": "2026-11-07T01:05:01.333Z",
       "status": "sent"
+    },
+    "6af0e0d99214322f68776518": {
+      "category": "membership",
+      "creative_id": "offer-6",
+      "day": "2026-11-08",
+      "insights_state": "metrics available",
+      "metrics": {
+        "comments": 0.0,
+        "engagementRate": 0.0,
+        "follows": 0.0,
+        "reach": 0.0,
+        "reactions": 0.0,
+        "saves": 0.0,
+        "shares": 0.0,
+        "views": 0.0
+      },
+      "metrics_updated_at": "2026-11-08T23:04:23.284Z",
+      "platform": "instagram",
+      "sent_at": "2026-11-08T20:51:45.764Z",
+      "status": "sent"
+    },
+    "6af0e0e351492b796e5ebf8d": {
+      "category": "membership",
+      "creative_id": "offer-6",
+      "day": "2026-11-08",
+      "insights_state": "metrics available",
+      "metrics": {
+        "averageTimeWatched": 2.21,
+        "comments": 0.0,
+        "engagementRate": 5.0,
+        "reach": 0.0,
+        "reactions": 1.0,
+        "shares": 0.0,
+        "totalTimeWatched": 0.73,
+        "views": 20.0
+      },
+      "metrics_updated_at": "2026-11-08T22:07:42.857Z",
+      "platform": "tiktok",
+      "sent_at": "2026-11-08T20:53:29.986Z",
+      "status": "sent"
     }
   },
-  "updated_at": "2026-11-08T19:35:07.915100+00:00"
+  "updated_at": "2026-11-09T09:41:01.258360+00:00"
 }
