@@ -49,7 +49,7 @@ def as_post(entry, day, destination, url_for):
     hashtags = entry["hashtags"]
     return {
         "date": day.isoformat(),
-        "category": "membership",
+        "category": entry.get("category", "membership"),
         "headline": heading,
         "detail": detail,
         "helper": "Practice tests • Guided learning • Daily games",
