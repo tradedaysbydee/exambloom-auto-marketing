@@ -37,3 +37,16 @@ See [SALES_TRACKING.md](SALES_TRACKING.md) for privacy-safe website attribution 
 Never add passwords, Buffer API keys or Stripe keys to public files. Existing Buffer authorization is in GitHub Actions secrets. GitHub Actions and Buffer are external services; schedules, access permissions and free-plan limits can change. If either social platform requires reauthorization, reconnect it inside Buffer.
 
 Ensure profile bios point parents to `https://exambloom.co.uk`. Use parent-directed language, avoid claims of guaranteed exam performance, and handle data about children and parents appropriately under UK privacy law.
+
+## Add the ten new image quiz posts (14 November 2026)
+
+The repo now contains `assets/campaigns/quiz_manifest.json` and `quiz_gallery.py`, which register **ten uniquely named JPG quiz images** from the ExamBloom content pack. The artwork itself must be uploaded into `assets/campaigns/` — the GitHub publishing connector can edit text but cannot transfer local binary image files.
+
+1. Download the `exambloom_10_quiz_GitHub_upload_pack.zip` file from the ChatGPT conversation, and extract it on your Mac.
+2. Visit [assets/campaigns](assets/campaigns), choose **Add file → Upload files**, and upload the **ten JPGs**, not the ZIP.
+3. Commit changes to `main`. The required filenames are `09_crayon_quiz.jpg` through `18_family_science.jpg`, listed individually in `quiz_manifest.json`.
+4. Check the next scheduled GitHub Actions preview and the Buffer dashboard after a post is submitted.
+
+**Safety:** All ten JPG files must exist before this queue activates. Until then the bot keeps using its existing generated Wednesday/Saturday quizzes; sales campaigns and the existing once-daily Buffer scheduling stay unchanged. Once present, the new image quizzes rotate on **Wednesday and Saturday**, one per selected day, beginning on or after 18 November 2026. No posts are triggered by merely committing this setup. `bot.py` now letterboxes tall artwork to 1080×1350 instead of cropping important question text.
+
+The original AI-generated JPGs are visuals, not live screenshots of the website. Some spelling designs reveal the answer; consider them answer-reveal posts when writing follow-up captions.
