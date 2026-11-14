@@ -34,6 +34,7 @@ GRAPH = "https://graph.facebook.com/" + VERSION
 from creative_library import OFFERS, QUIZZES
 from strategy import choose_offer
 from campaign_gallery import select_campaign, as_post
+from quiz_gallery import select_quiz_campaign
 
 
 def font(size, bold=True):
@@ -63,7 +64,7 @@ def url_for(day, campaign, destination):
 def compose_post(day, destination):
     # Approved real-image campaigns go out on four sales days each week.
     # A missing image cleanly falls back to the regular generated graphic.
-    gallery = select_campaign(day)
+    gallery = select_quiz_campaign(day) or select_campaign(day)
     if gallery is not None:
         return as_post(gallery, day, destination, url_for)
 
@@ -136,8 +137,11 @@ def render(post, target):
         if source.parent != campaigns or not source.is_file():
             raise ValueError("Campaign image is missing or outside the approved gallery.")
         with Image.open(source) as original:
-            image = ImageOps.fit(original.convert("RGB"), (1080, 1350),
-                                 method=Image.Resampling.LANCZOS)
+            fitted = ImageOps.contain(original.convert("RGB"), (1080, 1350),
+                                      method=Image.Resampling.LANCZOS)
+            image = Image.new("RGB", (1080, 1350), "#F7F3FF")
+            image.paste(fitted, ((1080 - fitted.width) // 2,
+                                 (1350 - fitted.height) // 2))
         target.parent.mkdir(parents=True, exist_ok=True)
         image.save(target, "JPEG", quality=90, optimize=True)
         return
