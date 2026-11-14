@@ -1,15 +1,15 @@
 # ExamBloom organic marketing — performance history
 
-Last checked (UTC): 2026-11-13T09:35:52.900081+00:00
+Last checked (UTC): 2026-11-14T09:26:03.302151+00:00
 
 **Goal:** 1,000,000 measured exposure events. This is not a count of unique people, nor a guarantee of reach. Views and impressions can count repeats.
 
 | Platform | Submitted posts | Posts with metrics | Exposure events | Reactions | Comments | Shares |
 |:--|--:|--:|--:|--:|--:|--:|
-| Instagram | 6 | 6 | 0 | 2 | 0 | 0 |
-| Tiktok | 6 | 6 | 1,365 | 15 | 3 | 0 |
+| Instagram | 7 | 7 | 0 | 2 | 0 | 0 |
+| Tiktok | 7 | 7 | 1,505 | 15 | 3 | 0 |
 
-**Observed exposure events:** 1,365 / 1,000,000 (0.14% of target)
+**Observed exposure events:** 1,505 / 1,000,000 (0.15% of target)
 
 Metrics are refreshed by Buffer roughly once per day. Missing measurements are unknown, not zero. Comparing summed exposure events with unique reach is not valid.
 
