@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "purpose": "Ten user-provided ExamBloom quiz images prepared for the existing Buffer posting bot. Requires all ten JPGs before activation.",
+  "campaigns": [
+    {
+      "id": "crayons",
+      "file": "09_crayon_quiz.jpg",
+      "category": "quiz",
+      "headline": [
+        "Primary Maths",
+        "Crayon challenge"
+      ],
+      "detail": "A box has 24 crayons and seven are used. How many remain?",
+      "cta": "Can you work it out before the five-second countdown ends?",
+      "hashtags": "#ExamBloom #MathsChallenge #PrimaryMaths #UKParents"
+    },
+    {
+      "id": "fractions",
+      "file": "10_fractions_3_4_36.jpg",
+      "category": "quiz",
+      "headline": [
+        "Fraction challenge",
+        "Think in quarters"
+      ],
+      "detail": "What is three quarters of 36?",
+      "cta": "Comment A, B, C or D. Try another question on ExamBloom.",
+      "hashtags": "#ExamBloom #Fractions #MathsQuiz #11PlusPrep"
+    },
+    {
+      "id": "spelling",
+      "file": "11_spelling_necessary.jpg",
+      "category": "quiz",
+      "headline": [
+        "Spelling challenge",
+        "Can you spell it?"
+      ],
+      "detail": "Which spelling of necessary is correct?",
+      "cta": "Did you pick the highlighted spelling? More English practice on ExamBloom.",
+      "hashtags": "#ExamBloom #SpellingChallenge #EnglishLearning #UKParents"
+    },
+    {
+      "id": "number-pattern",
+      "file": "12_number_pattern.jpg",
+      "category": "quiz",
+      "headline": [
+        "11+ pattern test",
+        "Find the next number"
+      ],
+      "detail": "Can you complete the pattern: 3, 8, 15, 24, 35, ...?",
+      "cta": "Comment your answer and challenge a friend.",
+      "hashtags": "#ExamBloom #11Plus #NumberPatterns #Reasoning"
+    },
+    {
+      "id": "plant-minerals",
+      "file": "13_science_nitrate.jpg",
+      "category": "quiz",
+      "headline": [
+        "Science challenge",
+        "Plant nutrition"
+      ],
+      "detail": "Which mineral do plants absorb to help make amino acids?",
+      "cta": "Test your science knowledge and share your choice.",
+      "hashtags": "#ExamBloom #ScienceQuiz #KS3Science #LearningAtHome"
+    },
+    {
+      "id": "family-percentage",
+      "file": "14_family_percentage.jpg",
+      "category": "quiz",
+      "headline": [
+        "Family Maths Quiz",
+        "Challenge your family"
+      ],
+      "detail": "What is 25% of 80?",
+      "cta": "Ask the whole family to try before revealing the answer.",
+      "hashtags": "#ExamBloom #FamilyQuiz #MathsChallenge #UKParents"
+    },
+    {
+      "id": "family-fractions",
+      "file": "15_family_fractions.jpg",
+      "category": "quiz",
+      "headline": [
+        "Family fraction quiz",
+        "Learn together"
+      ],
+      "detail": "What is three quarters of 36?",
+      "cta": "Who in your family can answer quickest?",
+      "hashtags": "#ExamBloom #FamilyLearning #Fractions #LearningAtHome"
+    },
+    {
+      "id": "students-number-pattern",
+      "file": "16_students_number_pattern.jpg",
+      "category": "quiz",
+      "headline": [
+        "Student challenge",
+        "Number sequence"
+      ],
+      "detail": "Can you complete the pattern: 3, 8, 15, 24, 35, ...?",
+      "cta": "Comment your answer and challenge your school friends.",
+      "hashtags": "#ExamBloom #DailyBrainSprint #11Plus #BrainChallenge"
+    },
+    {
+      "id": "family-spelling",
+      "file": "17_family_spelling.jpg",
+      "category": "quiz",
+      "headline": [
+        "Family spelling quiz",
+        "Answer reveal"
+      ],
+      "detail": "Which spelling of necessary is correct?",
+      "cta": "Did you get this one right? Try another English challenge.",
+      "hashtags": "#ExamBloom #SpellingQuiz #FamilyLearning #EnglishSkills"
+    },
+    {
+      "id": "family-science",
+      "file": "18_family_science.jpg",
+      "category": "quiz",
+      "headline": [
+        "Family science quiz",
+        "Think like a scientist"
+      ],
+      "detail": "Which mineral do plants absorb to help make amino acids?",
+      "cta": "Compare answers and learn together.",
+      "hashtags": "#ExamBloom #ScienceChallenge #FamilyLearning #HomeLearning"
+    }
+  ]
+}
