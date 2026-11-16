@@ -106,5 +106,12 @@
       "requested_at": "2026-11-15T13:08:05.929664+00:00",
       "status": "sending"
     }
+  },
+  "2026-11-16": {
+    "instagram": {
+      "post_id": "6afb56c01377c0ebdd336948",
+      "requested_at": "2026-11-16T19:17:30.886274+00:00",
+      "status": "sent"
+    }
   }
 }
