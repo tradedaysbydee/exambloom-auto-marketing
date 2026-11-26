@@ -18,7 +18,7 @@
         "sample_size": 1
       },
       "gallery-family-learning-together": {
-        "median_quality_per_1000": 20.165,
+        "median_quality_per_1000": 19.979,
         "sample_size": 2
       },
       "gallery-guided-lessons": {
@@ -30,7 +30,7 @@
         "sample_size": 1
       },
       "gallery-progress-and-badges": {
-        "median_quality_per_1000": 10.753,
+        "median_quality_per_1000": 10.601,
         "sample_size": 1
       },
       "offer-6": {
@@ -50,11 +50,11 @@
         "sample_size": 1
       },
       "quiz-6": {
-        "median_quality_per_1000": 17.241,
-        "sample_size": 1
+        "median_quality_per_1000": 10.946,
+        "sample_size": 2
       },
       "quiz-7": {
-        "median_quality_per_1000": 24.45,
+        "median_quality_per_1000": 24.39,
         "sample_size": 1
       },
       "quiz-8": {
@@ -68,7 +68,7 @@
     "slot_sample_counts": {
       "12": 4,
       "18": 2,
-      "20": 11
+      "20": 12
     },
     "top_slot": 20,
     "top_topic": "quiz",
@@ -77,34 +77,34 @@
       "family": 5,
       "learning": 1,
       "progress": 1,
-      "quiz": 8,
+      "quiz": 9,
       "routine": 2
     }
   },
   "goal": {
     "metric": "summed post exposure events (NOT unique people)",
-    "observed": 4573,
+    "observed": 4805,
     "target": 1000000
   },
   "issues": [],
   "platforms": {
     "instagram": {
       "comments": 0,
-      "exposure_events": 9,
-      "posts": 18,
+      "exposure_events": 12,
+      "posts": 19,
       "reactions": 6,
       "saves": 0,
       "shares": 0,
-      "with_metrics": 18
+      "with_metrics": 19
     },
     "tiktok": {
       "comments": 7,
-      "exposure_events": 4564,
-      "posts": 18,
-      "reactions": 43,
+      "exposure_events": 4793,
+      "posts": 19,
+      "reactions": 44,
       "saves": 0,
       "shares": 2,
-      "with_metrics": 18
+      "with_metrics": 19
     }
   },
   "records": {
@@ -123,7 +123,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-07T01:03:35.352Z",
       "status": "sent"
@@ -143,7 +143,7 @@
         "totalTimeWatched": 21.85,
         "views": 348.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-07T01:05:01.333Z",
       "status": "sent"
@@ -163,7 +163,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-08T20:51:45.764Z",
       "status": "sent"
@@ -183,7 +183,7 @@
         "totalTimeWatched": 10.53,
         "views": 205.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-08T20:53:29.986Z",
       "status": "sent"
@@ -203,7 +203,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-09T13:27:49.576Z",
       "status": "sent"
@@ -223,7 +223,7 @@
         "totalTimeWatched": 30.0,
         "views": 370.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-09T13:29:35.171Z",
       "status": "sent"
@@ -243,7 +243,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-10T19:15:46.699Z",
       "status": "sent"
@@ -263,7 +263,7 @@
         "totalTimeWatched": 8.83,
         "views": 178.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-10T19:17:24.312Z",
       "status": "sent"
@@ -283,7 +283,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-11T21:46:56.255Z",
       "status": "sent"
@@ -303,7 +303,7 @@
         "totalTimeWatched": 38.65,
         "views": 398.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-11T21:48:40.165Z",
       "status": "sent"
@@ -323,7 +323,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-12T13:27:36.381Z",
       "status": "sent"
@@ -343,7 +343,7 @@
         "totalTimeWatched": 19.32,
         "views": 339.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-12T13:29:21.673Z",
       "status": "sent"
@@ -363,7 +363,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-13T19:15:00.233Z",
       "status": "sent"
@@ -383,7 +383,7 @@
         "totalTimeWatched": 7.78,
         "views": 176.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-13T19:16:46.348Z",
       "status": "sent"
@@ -403,7 +403,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-14T20:52:36.911Z",
       "status": "sent"
@@ -421,9 +421,9 @@
         "reactions": 1.0,
         "shares": 1.0,
         "totalTimeWatched": 56.43,
-        "views": 409.0
+        "views": 410.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-14T20:54:21.593Z",
       "status": "sent"
@@ -443,7 +443,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-15T13:07:53.918Z",
       "status": "sent"
@@ -463,7 +463,7 @@
         "totalTimeWatched": 18.3,
         "views": 212.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-15T13:09:41.930Z",
       "status": "sent"
@@ -483,7 +483,7 @@
         "shares": 0.0,
         "views": 1.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-16T19:17:30.199Z",
       "status": "sent"
@@ -494,16 +494,16 @@
       "day": "2026-11-16",
       "insights_state": "metrics available",
       "metrics": {
-        "averageTimeWatched": 3.6,
+        "averageTimeWatched": 2.81,
         "comments": 0.0,
         "engagementRate": 1.53,
         "reach": 262.0,
         "reactions": 4.0,
         "shares": 0.0,
-        "totalTimeWatched": 19.3,
+        "totalTimeWatched": 15.32,
         "views": 262.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-16T19:19:14.853Z",
       "status": "sent"
@@ -523,7 +523,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-17T21:06:35.273Z",
       "status": "sent"
@@ -543,7 +543,7 @@
         "totalTimeWatched": 6.95,
         "views": 156.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.363Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-17T21:08:15.082Z",
       "status": "sent"
@@ -563,7 +563,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-18T21:08:02.080Z",
       "status": "sent"
@@ -583,7 +583,7 @@
         "totalTimeWatched": 56.27,
         "views": 314.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.362Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-18T21:09:48.984Z",
       "status": "sent"
@@ -603,7 +603,7 @@
         "shares": 0.0,
         "views": 5.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-19T21:05:37.487Z",
       "status": "sent"
@@ -614,16 +614,16 @@
       "day": "2026-11-19",
       "insights_state": "metrics available",
       "metrics": {
-        "averageTimeWatched": 14.21,
+        "averageTimeWatched": 13.96,
         "comments": 0.0,
-        "engagementRate": 1.08,
+        "engagementRate": 1.06,
         "reach": 276.0,
         "reactions": 3.0,
         "shares": 0.0,
-        "totalTimeWatched": 96.58,
-        "views": 279.0
+        "totalTimeWatched": 96.78,
+        "views": 283.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.362Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-19T21:07:10.371Z",
       "status": "sent"
@@ -643,7 +643,7 @@
         "shares": 0.0,
         "views": 2.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.817Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-20T21:04:45.334Z",
       "status": "sent"
@@ -663,7 +663,7 @@
         "totalTimeWatched": 49.25,
         "views": 124.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.362Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-20T21:05:45.157Z",
       "status": "sent"
@@ -683,7 +683,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.816Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-21T20:55:55.167Z",
       "status": "sent"
@@ -703,7 +703,7 @@
         "totalTimeWatched": 101.7,
         "views": 320.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.362Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.012Z",
       "platform": "tiktok",
       "sent_at": "2026-11-21T20:57:40.252Z",
       "status": "sent"
@@ -723,7 +723,7 @@
         "shares": 0.0,
         "views": 1.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.816Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-22T20:57:59.710Z",
       "status": "sent"
@@ -743,7 +743,7 @@
         "totalTimeWatched": 3.4,
         "views": 102.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.362Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.011Z",
       "platform": "tiktok",
       "sent_at": "2026-11-22T20:59:41.283Z",
       "status": "sent"
@@ -763,7 +763,7 @@
         "shares": 0.0,
         "views": 0.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.816Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-23T21:05:06.873Z",
       "status": "sent"
@@ -780,10 +780,10 @@
         "reach": 72.0,
         "reactions": 0.0,
         "shares": 0.0,
-        "totalTimeWatched": 10.2,
+        "totalTimeWatched": 10.3,
         "views": 221.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.362Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.011Z",
       "platform": "tiktok",
       "sent_at": "2026-11-23T21:06:28.874Z",
       "status": "sent"
@@ -797,13 +797,13 @@
         "comments": 0.0,
         "engagementRate": 0.0,
         "follows": 0.0,
-        "reach": 0.0,
+        "reach": 1.0,
         "reactions": 0.0,
         "saves": 0.0,
         "shares": 0.0,
-        "views": 0.0
+        "views": 3.0
       },
-      "metrics_updated_at": "2026-11-25T05:07:31.816Z",
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
       "platform": "instagram",
       "sent_at": "2026-11-24T13:31:12.741Z",
       "status": "sent"
@@ -814,20 +814,60 @@
       "day": "2026-11-24",
       "insights_state": "metrics available",
       "metrics": {
-        "averageTimeWatched": 4.72,
+        "averageTimeWatched": 4.49,
         "comments": 0.0,
-        "engagementRate": 0.66,
+        "engagementRate": 0.63,
         "reach": 0.0,
         "reactions": 1.0,
         "shares": 0.0,
-        "totalTimeWatched": 16.05,
-        "views": 151.0
+        "totalTimeWatched": 16.55,
+        "views": 160.0
       },
-      "metrics_updated_at": "2026-11-25T05:24:33.362Z",
+      "metrics_updated_at": "2026-11-26T04:25:44.011Z",
       "platform": "tiktok",
       "sent_at": "2026-11-24T13:32:35.339Z",
       "status": "sent"
+    },
+    "6b074f5306ec7763b4a0f51b": {
+      "category": "quiz",
+      "creative_id": "quiz-6",
+      "day": "2026-11-25",
+      "insights_state": "metrics available",
+      "metrics": {
+        "comments": 0.0,
+        "engagementRate": 0.0,
+        "follows": 0.0,
+        "reach": 0.0,
+        "reactions": 0.0,
+        "saves": 0.0,
+        "shares": 0.0,
+        "views": 0.0
+      },
+      "metrics_updated_at": "2026-11-26T04:07:42.769Z",
+      "platform": "instagram",
+      "sent_at": "2026-11-25T21:13:00.859Z",
+      "status": "sent"
+    },
+    "6b074f5f7a0d3d2e026940c8": {
+      "category": "quiz",
+      "creative_id": "quiz-6",
+      "day": "2026-11-25",
+      "insights_state": "metrics available",
+      "metrics": {
+        "averageTimeWatched": 4.06,
+        "comments": 0.0,
+        "engagementRate": 0.47,
+        "reach": 0.0,
+        "reactions": 1.0,
+        "shares": 0.0,
+        "totalTimeWatched": 22.42,
+        "views": 215.0
+      },
+      "metrics_updated_at": "2026-11-26T04:25:44.011Z",
+      "platform": "tiktok",
+      "sent_at": "2026-11-25T21:14:46.757Z",
+      "status": "sent"
     }
   },
-  "updated_at": "2026-11-25T09:50:29.649282+00:00"
+  "updated_at": "2026-11-26T09:46:37.333836+00:00"
 }
